@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机图片展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        img {
+            width: 800px; /* 根据图片尺寸调整 */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>随机图片展示</h1>
+    <img id="image" src="" alt="随机图片" style="display:none;">
+    <button id="randomBtn">显示随机图片</button>
+
+    <!-- 引入生成的图片路径数组 -->
+    <script src="images.js"></script>
+    <script>
+        // 随机显示图片
+        function showRandomImage() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const imageElement = document.getElementById('image');
+            imageElement.src = images[randomIndex];
+            imageElement.style.display = "block"; // 显示图片
+        }
+
+        // 绑定按钮点击事件
+        const randomBtn = document.getElementById('randomBtn');
+        randomBtn.addEventListener('click', showRandomImage);
+    </script>
+</body>
+</html>
